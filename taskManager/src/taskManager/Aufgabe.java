@@ -7,6 +7,7 @@ public class Aufgabe {
 	private String aufgabentext;
 	private GregorianCalendar datumErstellung;
 	
+
 	public Aufgabe(String aufgabentext, GregorianCalendar datumErstellung) {
 		super();
 		this.aufgabentext = aufgabentext;

@@ -2,12 +2,14 @@ package taskManager;
 
 import java.util.GregorianCalendar;
 
-public class AufgabeMitDeadline {
+public class AufgabeMitDeadline extends Aufgabe{
 
 	private GregorianCalendar deadline;
 
-	public AufgabeMitDeadline(GregorianCalendar deadline) {
-		super();
+
+
+	public AufgabeMitDeadline(String aufgabentext, GregorianCalendar datumErstellung, GregorianCalendar deadline) {
+		super(aufgabentext, datumErstellung);
 		this.deadline = deadline;
 	}
 
@@ -19,8 +21,9 @@ public class AufgabeMitDeadline {
 		this.deadline = deadline;
 	}
 
-	
+	@Override
 	public String toString() {
 		
+		return "";
 	}
 }
