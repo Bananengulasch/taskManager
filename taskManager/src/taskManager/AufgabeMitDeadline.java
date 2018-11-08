@@ -2,7 +2,7 @@ package taskManager;
 
 import java.util.GregorianCalendar;
 
-public class AufgabeMitDeadline {
+public class AufgabeMitDeadline extends Aufgabe {
 
 	private GregorianCalendar deadline;
 
