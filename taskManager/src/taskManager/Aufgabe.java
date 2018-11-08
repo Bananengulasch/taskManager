@@ -1,11 +1,10 @@
 package taskManager;
 
-import java.security.*;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Date;
 import java.sql.Timestamp;
 
 public class Aufgabe {
@@ -62,5 +61,11 @@ public class Aufgabe {
 	    }
 	    return calendar;
 	  }
-	 
+	
+	public static String calendarToString(Calendar calendar, String datePattern) {
+	    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern);
+	    String calendarString = simpleDateFormat.format(calendar.getTime());
+	    return calendarString;
+	    
+	  }
 }
