@@ -6,8 +6,6 @@ public class AufgabeMitDeadline extends Aufgabe{
 
 	private GregorianCalendar deadline;
 
-
-
 	public AufgabeMitDeadline(String aufgabentext, GregorianCalendar datumErstellung, GregorianCalendar deadline) {
 		super(aufgabentext, datumErstellung);
 		this.deadline = deadline;
