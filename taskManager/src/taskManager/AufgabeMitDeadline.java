@@ -21,7 +21,7 @@ public class AufgabeMitDeadline extends Aufgabe{
 
 	@Override
 	public String toString() {
-		
-		return "";
+		super.toString();
+		return "Deadline --> " + getDeadline();
 	}
 }
