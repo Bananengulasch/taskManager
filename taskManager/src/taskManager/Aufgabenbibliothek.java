@@ -24,6 +24,13 @@ public class Aufgabenbibliothek {
 		}
 	}
 	
+	//prüft ob die Deadline abgelaufen ist
+	//Wenn ja, gib Meldung
+	public void deadlinePruefung() {
+		
+	}
+	
+	//Deadline ist abgelaufen
 	public void deadlineAbgelaufen() {
 		for (Aufgabe a : aufgabenliste)
 		{
