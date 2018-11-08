@@ -9,6 +9,4 @@ public class App {
 		SimpleDateFormat datumformat = new SimpleDateFormat("dd.mm.yyyy");
 		System.out.println(datumformat.format(a.getDatumErstellung()));
 	}
-
-	
 }
