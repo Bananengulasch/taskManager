@@ -3,8 +3,7 @@ package taskManager;
 public class App {
 	
 	public static void main(String[] args) {
-		
-		KommandozeilenmenÃ¼ kmz = new KommandozeilenmenÃ¼();
+		Kommandozeilenmenü kmz = new Kommandozeilenmenü();
 		kmz.start();
 	}
 }
