@@ -1,6 +1,5 @@
 package taskManager;
 
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -35,11 +34,6 @@ public class Aufgabe {
 	public void setDatumErstellung(GregorianCalendar datumErstellung) {
 		this.datumErstellung = datumErstellung;
 	}
-
-	@Override
-	public String toString() {
-		return "Aufgabe --> " + this.getAufgabentext() + "\n" + "Erstellungsdatum --> " + this.getDatumErstellung();
-	}
 	
 	public static Calendar stringToCalendar(String stringDate, String datePattern) {
 	    if (stringDate == null) {
@@ -62,10 +56,9 @@ public class Aufgabe {
 	    return calendar;
 	  }
 	
-	public static String calendarToString(Calendar calendar, String datePattern) {
-	    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern);
-	    String calendarString = simpleDateFormat.format(calendar.getTime());
-	    return calendarString;
-	    
-	  }
+	@Override
+	public String toString() {
+		return "Aufgabe --> " + this.getAufgabentext() + "\n" + "Erstellungsdatum --> " + this.getDatumErstellung();
+	}
+	 
 }
