@@ -1,7 +1,6 @@
 package taskManager;
 
-
-	import java.util.Scanner;
+import java.util.Scanner;
 
 public class Kommandozeilenmenü {
 
@@ -12,7 +11,8 @@ public class Kommandozeilenmenü {
 	}
 
 	public void MenüAnzeigen() {
-		System.out.println("MENÜ");
+		System.out.println("------------------------------");
+		System.out.println("HAUPTMENÜ");
 		System.out.println("1) HINZUFÜGEN");
 		System.out.println("2) AUSGABE");
 		System.out.println("3) FILTERN");
@@ -27,13 +27,13 @@ public class Kommandozeilenmenü {
 			switch(s)
 			{
 			case "1":
-				this.ausgabe();
+				this.hinzufügen();
 				break;
 			case "2":
-				this.rechnen();
+				this.ausgabe();
 				break;
 			case "3":
-				this.rechnen();
+				this.filtern();
 				break;
 			case "4":
 				break;
@@ -44,19 +44,55 @@ public class Kommandozeilenmenü {
 		}
 			scan.close();
 		}
+	
+	public void hinzufügen() {
+		System.out.println("------------------------------");
+		System.out.println("Aufgabe mit oder ohne Deadline hinzufügen?");
+		System.out.println("     Mit		Ohne");
+		String s = scan.nextLine();
+		switch(s.toLowerCase())
+		{
+			case "mit":
+				this.hinzufügenMitDeadline();
+				break;
+			case "ohne":
+				this.hinzufügenOhneDeadline();
+				break;
+			default:
+				this.fehler();
+				break;
+		}			
+	}
+	
+	public void hinzufügenMitDeadline() {
+		System.out.println("Geben Sie den Aufgabentext ein:");
+		String text = scan.nextLine();
+		System.out.println("Geben Sie das aktuelle Datum ein:");
+		String aktuellesDatum = scan.nextLine();
+		System.out.println("Geben Sie die Deadline der Aufgabe ein:");
+		String deadline = scan.nextLine();
 		
-	public void ausgabe()
-	{			
-		System.out.println("AUSGABE");
+//		Aufgabe a = new AufgabeMitDeadline(text, aktuellesDatum, deadline);
+
+	}
+	
+	public void hinzufügenOhneDeadline() {
+		System.out.println("Geben Sie den Aufgabentext ein:");
+		String text = scan.nextLine();
+		
+//		Aufgabe a = new Aufgabe(text, datumErstellung);
 	}
 		
-	public void rechnen()
-	{
-		System.out.println("RECHNEN 1+1 = 2");
+	public void ausgabe(){			
+		System.out.println("------------------------------");
+		System.out.println("");
 	}
 		
-	public void fehler()
-	{
+	public void filtern(){
+		System.out.println("------------------------------");
+	}
+		
+	public void fehler(){
 		System.out.println("Sie können nur 1,2 oder 3 eingeben!");
 	}
 }

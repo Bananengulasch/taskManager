@@ -1,11 +1,9 @@
 package taskManager;
 
-import java.security.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import java.util.Date;
 import java.sql.Timestamp;
 
 public class Aufgabe {
@@ -36,11 +34,6 @@ public class Aufgabe {
 	public void setDatumErstellung(GregorianCalendar datumErstellung) {
 		this.datumErstellung = datumErstellung;
 	}
-
-	@Override
-	public String toString() {
-		return "Aufgabe --> " + this.getAufgabentext() + "\n" + "Erstellungsdatum --> " + this.getDatumErstellung();
-	}
 	
 	public static Calendar stringToCalendar(String stringDate, String datePattern) {
 	    if (stringDate == null) {
@@ -62,5 +55,10 @@ public class Aufgabe {
 	    }
 	    return calendar;
 	  }
+	
+	@Override
+	public String toString() {
+		return "Aufgabe --> " + this.getAufgabentext() + "\n" + "Erstellungsdatum --> " + this.getDatumErstellung();
+	}
 	 
 }
