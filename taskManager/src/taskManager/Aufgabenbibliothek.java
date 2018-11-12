@@ -38,7 +38,7 @@ public class Aufgabenbibliothek {
 		}
 	}
 	
-	//Aufgabe durch Suchen in der Liste finden
+	//Aufgabe durch Filtern in der Liste finden
 	public void aufgabeFiltern(String aufgabe) {
 		for (Aufgabe a : aufgabenliste)
 		{

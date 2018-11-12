@@ -20,8 +20,8 @@ public class Kommandozeilenmenue {
 	}
 	
 	public void bisherigeAufgaben() {
-		String a ="20.11.2018";
-		String b ="30.11.2018";
+		String datum1 ="20.11.2018";
+		String datum2 ="30.11.2018";
 		GregorianCalendar gc = stringToCalendar(a, "dd.mm.yyyy");
 		GregorianCalendar gc2 = stringToCalendar(b, "dd.mm.yyyy");
 		Aufgabe a1 = new AufgabeMitDeadline("APR Hausaufgabe", gc, gc2);
