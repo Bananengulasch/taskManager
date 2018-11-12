@@ -169,7 +169,7 @@ public class Kommandozeilenmenue {
 		System.out.println("-----------------------------------------");
 		System.out.println("Bitte geben Sie den vollständigen Text der Aufgabe ein:");
 		String s = scan.nextLine();
-		ab.mediumFiltern(s);
+		ab.aufgabeFiltern(s);
 		start();
 	}
 	
