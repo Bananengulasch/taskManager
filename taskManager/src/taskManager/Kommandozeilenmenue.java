@@ -3,12 +3,9 @@ package taskManager;
 import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
-import java.time.*;
 public class Kommandozeilenmenue {
 
 	Scanner scan;
@@ -20,8 +17,8 @@ public class Kommandozeilenmenue {
 	}
 	
 	public void bisherigeAufgaben() {
-		String datum1 ="20.11.2018";
-		String datum2 ="30.11.2018";
+		String a ="20.11.2018";
+		String b ="30.11.2018";
 		GregorianCalendar gc = stringToCalendar(a, "dd.mm.yyyy");
 		GregorianCalendar gc2 = stringToCalendar(b, "dd.mm.yyyy");
 		Aufgabe a1 = new AufgabeMitDeadline("APR Hausaufgabe", gc, gc2);
@@ -36,7 +33,7 @@ public class Kommandozeilenmenue {
 	public void MenueAnzeigen() {
 		System.out.println("------------------------------");
 		System.out.println("HAUPTMENUE");
-		System.out.println("1) HINZUF‹GEN/ENTFERNEN");
+		System.out.println("1) HINZUF√úGEN/ENTFERNEN");
 		System.out.println("2) AUSGABE");
 		System.out.println("3) FILTERN");
 		System.out.println("4) exit");
@@ -45,7 +42,7 @@ public class Kommandozeilenmenue {
 	public void MenueBearbeiten() {
 		System.out.println("------------------------------");
 		System.out.println("HAUPTMENUE");
-		System.out.println("1) HINZUF‹GEN");
+		System.out.println("1) HINZUF√úGEN");
 		System.out.println("2) ENTFERNEN");
 		System.out.println("3) exit");
 	}
@@ -55,7 +52,7 @@ public class Kommandozeilenmenue {
 		System.out.println("AUSGABENMENUE");
 		System.out.println("1) OHNE DEADLINE");
 		System.out.println("2) MIT DEADLINE");
-		System.out.println("3) ALLE");
+		System.out.println("3) ALLE AUFGABEN");
 		System.out.println("4) exit");
 	}
 
@@ -107,7 +104,7 @@ public class Kommandozeilenmenue {
 	//neue Aufgabe hinzufuegen
 	public void hinzufuegen() {
 		System.out.println("------------------------------");
-		System.out.println("Aufgabe mit oder ohne Deadline hinzuf√ºgen?");
+		System.out.println("Aufgabe mit oder ohne Deadline hinzuf√É¬ºgen?");
 		System.out.println("     Mit		Ohne");
 		String s = scan.nextLine();
 		switch(s.toLowerCase())
@@ -139,6 +136,7 @@ public class Kommandozeilenmenue {
 		Aufgabe a = new AufgabeMitDeadline(text, gc, gc2);
 		ab.aufgabeHinzufuegen(a);
 		System.out.println("Erfolgreich hinzugefuegt!");
+		start();
 
 	}
 	
@@ -146,13 +144,19 @@ public class Kommandozeilenmenue {
 		System.out.println("------------------------------");
 		System.out.println("Geben Sie den Aufgabentext ein:");
 		String text = scan.nextLine();
-		System.out.println("Geben Sie den Aufgabentext ein:");
-		String datumErstellung = scan.nextLine();
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+		String aktuellesDatum = formatter.format(date);
+		GregorianCalendar gc = stringToCalendar(aktuellesDatum, "dd.mm.yyyy");	
+		Aufgabe b = new Aufgabe(text, gc);
+		ab.aufgabeHinzufuegen(b);
+		start();
+		
 	}
 	
 	public void entfernen() {
 		System.out.println("-----------------------------------------");
-		System.out.println("Bitte geben Sie den vollst‰ndigen Name der gesuchten Aufgabe ein:");
+		System.out.println("Bitte geben Sie den vollst√§ndigen Name der gesuchten Aufgabe ein:");
 		String s = scan.nextLine();
 		ab.medienEntfernen(s);
 		start();
@@ -202,7 +206,7 @@ public class Kommandozeilenmenue {
 	
 	public void filtern() {
 		System.out.println("-----------------------------------------");
-		System.out.println("Bitte geben Sie den vollst‰ndigen Text der Aufgabe ein:");
+		System.out.println("Bitte geben Sie den vollst√§ndigen Text der Aufgabe ein:");
 		String s = scan.nextLine();
 		ab.aufgabeFiltern(s);
 		start();
