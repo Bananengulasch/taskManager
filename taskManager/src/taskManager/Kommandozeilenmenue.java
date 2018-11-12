@@ -24,12 +24,12 @@ public class Kommandozeilenmenue {
 		String b ="30.11.2018";
 		GregorianCalendar gc = stringToCalendar(a, "dd.mm.yyyy");
 		GregorianCalendar gc2 = stringToCalendar(b, "dd.mm.yyyy");
-		Aufgabe a1 = new AufgabeMitDeadline("APR-HÜ", gc, gc2);
+		Aufgabe a1 = new AufgabeMitDeadline("APR Hausaufgabe", gc, gc2);
 		ab.aufgabeHinzufuegen(a1);
 		
 		String c ="25.11.2018";
 		GregorianCalendar gc3 = stringToCalendar(c, "dd.mm.yyyy");
-		Aufgabe a2 = new Aufgabe("BW-HÜ", gc3);
+		Aufgabe a2 = new Aufgabe("BW Hausaufgabe", gc3);
 		ab.aufgabeHinzufuegen(a2);
 	}
 
@@ -79,6 +79,7 @@ public class Kommandozeilenmenue {
 						this.entfernen();
 						break;
 					case "3":
+						start();
 						break;
 					default:
 						this.fehler();
@@ -157,7 +158,7 @@ public class Kommandozeilenmenue {
 		start();
 	}
 		
-	public void ausgabe(){			
+	public void ausgabe(){	
 		ab.anzeigen();
 	}
 	

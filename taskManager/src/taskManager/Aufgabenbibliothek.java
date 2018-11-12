@@ -28,7 +28,7 @@ public class Aufgabenbibliothek {
 	public void medienEntfernen(String name) {
 		for (Aufgabe a : aufgabenliste)
 		{
-	       if (a.getAufgabentext().toLowerCase().equals(name.toLowerCase())) {
+	       if (a.getAufgabentext().toLowerCase().trim().contains(name.toLowerCase().trim())) {
 	    	   aufgabenliste.remove(a);
 	    	   System.out.println("Medium erfolgreich entfernt!");
 	    	   break;
@@ -42,8 +42,8 @@ public class Aufgabenbibliothek {
 	public void aufgabeFiltern(String aufgabe) {
 		for (Aufgabe a : aufgabenliste)
 		{
-	       if (a.getAufgabentext().toLowerCase().equals(aufgabe.toLowerCase())) {
-	    	   a.toString();
+	       if (a.getAufgabentext().toLowerCase().trim().equals(aufgabe.toLowerCase().trim())) {
+	    	   System.out.println(a);
 	       }
 		}
 	}
@@ -61,6 +61,7 @@ public class Aufgabenbibliothek {
 	//Ausgabe aller Aufgaben
 	public void anzeigen() {
 		for (Aufgabe a : aufgabenliste) {
+			System.out.println("------------------------------");
 			System.out.println(a);
 		}
 	}
