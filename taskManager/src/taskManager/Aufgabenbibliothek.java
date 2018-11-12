@@ -25,17 +25,16 @@ public class Aufgabenbibliothek {
 		}
 	}
 	
-	//prüft ob die Deadline abgelaufen ist
-	//Wenn ja, gib Meldung
-	public void deadlinePruefung() {
-		
-	}
-	
-	//Deadline ist abgelaufen
-	public void deadlineAbgelaufen() {
+	public void medienEntfernen(String name) {
 		for (Aufgabe a : aufgabenliste)
 		{
-			
+	       if (a.getAufgabentext().toLowerCase().equals(name.toLowerCase())) {
+	    	   aufgabenliste.remove(a);
+	    	   System.out.println("Medium erfolgreich entfernt!");
+	    	   break;
+	       }else {
+	    	   System.out.println("Dieses Medium existiert nicht!");
+	       }
 		}
 	}
 	

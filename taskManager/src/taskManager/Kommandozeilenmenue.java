@@ -36,10 +36,18 @@ public class Kommandozeilenmenue {
 	public void MenueAnzeigen() {
 		System.out.println("------------------------------");
 		System.out.println("HAUPTMENUE");
-		System.out.println("1) HINZUFUEGEN");
+		System.out.println("1) HINZUFÜGEN/ENTFERNEN");
 		System.out.println("2) AUSGABE");
 		System.out.println("3) FILTERN");
 		System.out.println("4) exit");
+	}
+	
+	public void MenueBearbeiten() {
+		System.out.println("------------------------------");
+		System.out.println("HAUPTMENUE");
+		System.out.println("1) HINZUFÜGEN");
+		System.out.println("2) ENTFERNEN");
+		System.out.println("3) exit");
 	}
 	
 	public void MenueAusgabe() {
@@ -59,6 +67,24 @@ public class Kommandozeilenmenue {
 			switch(s)
 			{
 			case "1":
+				MenueBearbeiten();
+				while (!s.equals("3")) {
+					s = scan.nextLine();
+					switch(s)
+					{
+					case "1":			
+						this.hinzufuegen();
+						break;
+					case "2":
+						this.entfernen();
+						break;
+					case "3":
+						break;
+					default:
+						this.fehler();
+						break;
+						}			
+					}
 				this.hinzufuegen();
 				break;
 			case "2":
@@ -121,6 +147,14 @@ public class Kommandozeilenmenue {
 		String text = scan.nextLine();
 		System.out.println("Geben Sie den Aufgabentext ein:");
 		String datumErstellung = scan.nextLine();
+	}
+	
+	public void entfernen() {
+		System.out.println("-----------------------------------------");
+		System.out.println("Bitte geben Sie den vollständigen Name der gesuchten Aufgabe ein:");
+		String s = scan.nextLine();
+		ab.medienEntfernen(s);
+		start();
 	}
 		
 	public void ausgabe(){			
