@@ -1,6 +1,11 @@
 package taskManager;
 
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.Scanner;
 
 public class Kommandozeilenmenue {
@@ -72,10 +77,13 @@ public class Kommandozeilenmenue {
 		String text = scan.nextLine();
 		System.out.println("Geben Sie das aktuelle Datum ein:");
 		String aktuellesDatum = scan.nextLine();
+		GregorianCalendar gc = stringToCalendar(aktuellesDatum, "dd.mm.yyyy");
 		System.out.println("Geben Sie die Deadline der Aufgabe ein:");
 		String deadline = scan.nextLine();
-		
-//		Aufgabe a = new AufgabeMitDeadline(text, aktuellesDatum, deadline);
+		String aktuellesDatum2 = scan.nextLine();
+		GregorianCalendar gc2 = stringToCalendar(aktuellesDatum, "dd.mm.yyyy");
+		Aufgabe a = new AufgabeMitDeadline(text, gc, gc2);
+		System.out.println(a);
 
 	}
 	
@@ -99,4 +107,26 @@ public class Kommandozeilenmenue {
 	public void fehler(){
 		System.out.println("Sie können nur 1,2 oder 3 eingeben!");
 	}
+	
+	public static GregorianCalendar stringToCalendar(String stringDate, String datePattern) {
+	    if (stringDate == null) {
+	      return null;
+	    }
+	    GregorianCalendar calendar = new GregorianCalendar();
+	    try {
+	      Timestamp newDate = Timestamp.valueOf(stringDate);
+	      calendar.setTime(newDate);
+	    }
+	    catch (Exception e) {
+	      SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern);
+	      try {
+	        calendar.setTime(simpleDateFormat.parse(stringDate));
+	      }
+	      catch (ParseException pe) {
+	        calendar = null;
+	      }
+	    }
+	    return calendar;
+	  }
+	
 }
