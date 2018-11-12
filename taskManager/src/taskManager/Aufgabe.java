@@ -28,17 +28,25 @@ public class Aufgabe {
 		this.aufgabentext = aufgabentext;
 	}
 	
-	public GregorianCalendar getDatumErstellung() {
-		return datumErstellung;
+	public String getDatumErstellungFormatiert() {
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.mm.yyyy");
+	    String calendarString = simpleDateFormat.format(datumErstellung.getTime());
+	    return calendarString;
 	}
 	
+public GregorianCalendar getDatumErstellung() {
+		
+		return datumErstellung;
+	}
+
 	public void setDatumErstellung(GregorianCalendar datumErstellung) {
 		this.datumErstellung = datumErstellung;
 	}
 
 	@Override
 	public String toString() {
-		return "Aufgabe --> " + this.getAufgabentext() + "\n" + "Erstellungsdatum --> " + this.getDatumErstellung();
+		return "Aufgabe --> " + this.getAufgabentext() + "\n" + "Erstellungsdatum --> " + this.getDatumErstellungFormatiert();
 	}
 	
 	public static Calendar stringToCalendar(String stringDate, String datePattern) {
@@ -63,6 +71,7 @@ public class Aufgabe {
 	  }
 	
 	public static String calendarToString(Calendar calendar, String datePattern) {
+		
 	    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern);
 	    String calendarString = simpleDateFormat.format(calendar.getTime());
 	    return calendarString;

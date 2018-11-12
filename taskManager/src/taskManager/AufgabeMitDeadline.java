@@ -1,5 +1,6 @@
 package taskManager;
 
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 public class AufgabeMitDeadline extends Aufgabe{
@@ -9,11 +10,18 @@ public class AufgabeMitDeadline extends Aufgabe{
 	public AufgabeMitDeadline(String aufgabentext, GregorianCalendar datumErstellung, GregorianCalendar deadline) {
 		super(aufgabentext, datumErstellung);
 		this.deadline = deadline;
-		deadline = new GregorianCalendar(2005,12,1);
+		
 	}
 
 	public GregorianCalendar getDeadline() {
 		return deadline;
+	}
+
+public String getDeadlineFormatiert() {
+		
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.mm.yyyy");
+	    String calendarString = simpleDateFormat.format(deadline.getTime());
+	    return calendarString;
 	}
 
 	public void setDeadline(GregorianCalendar deadline) {
@@ -22,7 +30,6 @@ public class AufgabeMitDeadline extends Aufgabe{
 
 	@Override
 	public String toString() {
-		super.toString();
-		return "Deadline --> " + getDeadline();
+		return super.toString() + "\n " + "Deadline --> " + getDeadlineFormatiert();
 	}
 }
