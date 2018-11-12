@@ -3,16 +3,16 @@ package taskManager;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Kommandozeilenmenü {
+public class Kommandozeilenmenue {
 
 	Scanner scan;
 	ArrayList<Aufgabe> aufgabenliste = new ArrayList<Aufgabe>();
 
-	public Kommandozeilenmenü() {
+	public Kommandozeilenmenue() {
 		this.scan = new Scanner(System.in);
 	}
 
-	public void MenüAnzeigen() {
+	public void MenueAnzeigen() {
 		System.out.println("------------------------------");
 		System.out.println("HAUPTMENÜ");
 		System.out.println("1) HINZUFÜGEN");
@@ -24,12 +24,12 @@ public class Kommandozeilenmenü {
 	public void start() {
 		String s = "-";
 		while (!s.equals("4")) {
-		MenüAnzeigen();
+		MenueAnzeigen();
 		s = scan.nextLine();
 			switch(s)
 			{
 			case "1":
-				this.hinzufügen();
+				this.hinzufuegen();
 				break;
 			case "2":
 				this.ausgabe();
@@ -48,7 +48,7 @@ public class Kommandozeilenmenü {
 		}
 	
 	//neue Aufgabe hinzufügen
-	public void hinzufügen() {
+	public void hinzufuegen() {
 		System.out.println("------------------------------");
 		System.out.println("Aufgabe mit oder ohne Deadline hinzufügen?");
 		System.out.println("     Mit		Ohne");
@@ -56,10 +56,10 @@ public class Kommandozeilenmenü {
 		switch(s.toLowerCase())
 		{
 			case "mit":
-				this.hinzufügenMitDeadline();
+				this.hinzufuegenMitDeadline();
 				break;
 			case "ohne":
-				this.hinzufügenOhneDeadline();
+				this.hinzufuegenOhneDeadline();
 				break;
 			default:
 				this.fehler();
@@ -67,7 +67,7 @@ public class Kommandozeilenmenü {
 		}			
 	}
 	
-	public void hinzufügenMitDeadline() {
+	public void hinzufuegenMitDeadline() {
 		System.out.println("Geben Sie den Aufgabentext ein:");
 		String text = scan.nextLine();
 		System.out.println("Geben Sie das aktuelle Datum ein:");
@@ -79,7 +79,7 @@ public class Kommandozeilenmenü {
 
 	}
 	
-	public void hinzufügenOhneDeadline() {
+	public void hinzufuegenOhneDeadline() {
 		System.out.println("Geben Sie den Aufgabentext ein:");
 		String text = scan.nextLine();
 		System.out.println("Geben Sie den Aufgabentext ein:");
