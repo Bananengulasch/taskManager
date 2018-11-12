@@ -80,8 +80,7 @@ public class Kommandozeilenmenue {
 		GregorianCalendar gc = stringToCalendar(aktuellesDatum, "dd.mm.yyyy");
 		System.out.println("Geben Sie die Deadline der Aufgabe ein:");
 		String deadline = scan.nextLine();
-		String aktuellesDatum2 = scan.nextLine();
-		GregorianCalendar gc2 = stringToCalendar(aktuellesDatum, "dd.mm.yyyy");
+		GregorianCalendar gc2 = stringToCalendar(deadline, "dd.mm.yyyy");
 		Aufgabe a = new AufgabeMitDeadline(text, gc, gc2);
 		System.out.println(a);
 
