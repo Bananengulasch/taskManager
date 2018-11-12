@@ -83,6 +83,7 @@ public class Kommandozeilenmenue {
 	}
 	
 	public void hinzufuegenMitDeadline() {
+		System.out.println("------------------------------");
 		System.out.println("Geben Sie den Aufgabentext ein:");
 		String text = scan.nextLine();
 		System.out.println("Geben Sie das aktuelle Datum ein:");
@@ -98,6 +99,7 @@ public class Kommandozeilenmenue {
 	}
 	
 	public void hinzufuegenOhneDeadline() {
+		System.out.println("------------------------------");
 		System.out.println("Geben Sie den Aufgabentext ein:");
 		String text = scan.nextLine();
 		System.out.println("Geben Sie den Aufgabentext ein:");

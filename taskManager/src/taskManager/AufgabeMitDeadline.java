@@ -30,6 +30,6 @@ public String getDeadlineFormatiert() {
 
 	@Override
 	public String toString() {
-		return super.toString() + "\n " + "Deadline --> " + getDeadlineFormatiert();
+		return super.toString() + "\n"+"Deadline --> " + getDeadlineFormatiert();
 	}
 }
