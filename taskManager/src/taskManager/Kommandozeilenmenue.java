@@ -113,6 +113,9 @@ public class Kommandozeilenmenue {
 		
 	public void filtern(){
 		System.out.println("------------------------------");
+		for(Aufgabe a : ab.alleDeadlineAlsListe()) {
+			System.out.println(a);
+		}
 		
 	}
 		
