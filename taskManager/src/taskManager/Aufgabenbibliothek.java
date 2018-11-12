@@ -43,6 +43,7 @@ public class Aufgabenbibliothek {
 		for (Aufgabe a : aufgabenliste)
 		{
 	       if (a.getAufgabentext().toLowerCase().trim().equals(aufgabe.toLowerCase().trim())) {
+	    	   System.out.println("------------------------------");
 	    	   System.out.println(a);
 	       }
 		}
