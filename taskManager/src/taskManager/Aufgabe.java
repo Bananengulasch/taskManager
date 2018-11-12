@@ -35,7 +35,7 @@ public class Aufgabe {
 	    return calendarString;
 	}
 	
-public GregorianCalendar getDatumErstellung() {
+	public GregorianCalendar getDatumErstellung() {
 		
 		return datumErstellung;
 	}
@@ -43,38 +43,34 @@ public GregorianCalendar getDatumErstellung() {
 	public void setDatumErstellung(GregorianCalendar datumErstellung) {
 		this.datumErstellung = datumErstellung;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((aufgabentext == null) ? 0 : aufgabentext.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Aufgabe other = (Aufgabe) obj;
+		if (aufgabentext == null) {
+			if (other.aufgabentext != null)
+				return false;
+		} else if (!aufgabentext.equals(other.aufgabentext))
+			return false;
+		return true;
+	}
 
 	@Override
 	public String toString() {
 		return "Aufgabe --> " + this.getAufgabentext() + "\n" + "Erstellungsdatum --> " + this.getDatumErstellungFormatiert();
 	}
-	
-	public static Calendar stringToCalendar(String stringDate, String datePattern) {
-	    if (stringDate == null) {
-	      return null;
-	    }
-	    Calendar calendar = new GregorianCalendar();
-	    try {
-	      Timestamp newDate = Timestamp.valueOf(stringDate);
-	      calendar.setTime(newDate);
-	    }
-	    catch (Exception e) {
-	      SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern);
-	      try {
-	        calendar.setTime(simpleDateFormat.parse(stringDate));
-	      }
-	      catch (ParseException pe) {
-	        calendar = null;
-	      }
-	    }
-	    return calendar;
-	  }
-	
-	public static String calendarToString(Calendar calendar, String datePattern) {
-		
-	    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern);
-	    String calendarString = simpleDateFormat.format(calendar.getTime());
-	    return calendarString;
-	    
-	  }
 }
