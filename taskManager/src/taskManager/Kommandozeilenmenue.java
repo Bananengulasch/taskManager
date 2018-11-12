@@ -5,9 +5,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Scanner;
-
+import java.time.*;
 public class Kommandozeilenmenue {
 
 	Scanner scan;
@@ -83,12 +84,14 @@ public class Kommandozeilenmenue {
 	}
 	
 	public void hinzufuegenMitDeadline() {
+		
 		System.out.println("------------------------------");
 		System.out.println("Geben Sie den Aufgabentext ein:");
 		String text = scan.nextLine();
-		System.out.println("Geben Sie das aktuelle Datum ein:");
-		String aktuellesDatum = scan.nextLine();
-		GregorianCalendar gc = stringToCalendar(aktuellesDatum, "dd.mm.yyyy");
+		Date date = new Date();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+		String aktuellesDatum = formatter.format(date);
+		GregorianCalendar gc = stringToCalendar(aktuellesDatum, "dd.mm.yyyy");	
 		System.out.println("Geben Sie die Deadline der Aufgabe ein:");
 		String deadline = scan.nextLine();
 		GregorianCalendar gc2 = stringToCalendar(deadline, "dd.mm.yyyy");
