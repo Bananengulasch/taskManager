@@ -7,7 +7,7 @@ public class Aufgabenbibliothek {
 	ArrayList<Aufgabe> aufgabenliste = new ArrayList<Aufgabe>();
 	ArrayList<AufgabeMitDeadline> deadlineliste = new ArrayList<AufgabeMitDeadline>();
 	
-	//neue Aufgabe hinzufügen
+	//neue Aufgabe hinzufÃ¼gen
 	public void aufgabeHinzufuegen(Aufgabe a) {
 		aufgabenliste.add(a);
 	}
@@ -66,12 +66,10 @@ public class Aufgabenbibliothek {
 		}
 	}
 	
-	//Entfernen der ausgew�hlten Aufgabe
+	//Entfernen der ausgewählten Aufgabe
 		public void erledigt(int index) {
 			
 				aufgabenliste.remove(index);
 			
 			}
 		}
-
-
