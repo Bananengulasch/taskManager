@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Kommandozeilenmenue {
 
 	Scanner scan;
-	ArrayList<Aufgabe> aufgabenliste = new ArrayList<Aufgabe>();
+	Aufgabenbibliothek ab = new Aufgabenbibliothek();
 
 	public Kommandozeilenmenue() {
 		this.scan = new Scanner(System.in);
