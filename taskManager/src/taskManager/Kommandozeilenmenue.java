@@ -33,7 +33,7 @@ public class Kommandozeilenmenue {
 	public void MenueAnzeigen() {
 		System.out.println("------------------------------");
 		System.out.println("HAUPTMENUE");
-		System.out.println("1) HINZUFÜGEN/ENTFERNEN");
+		System.out.println("1) HINZUFUEGEN/ENTFERNEN");
 		System.out.println("2) AUSGABE");
 		System.out.println("3) FILTERN");
 		System.out.println("4) exit");
@@ -42,7 +42,7 @@ public class Kommandozeilenmenue {
 	public void MenueBearbeiten() {
 		System.out.println("------------------------------");
 		System.out.println("HAUPTMENUE");
-		System.out.println("1) HINZUFÜGEN");
+		System.out.println("1) HINZUFUEGEN");
 		System.out.println("2) ENTFERNEN");
 		System.out.println("3) exit");
 	}
@@ -133,8 +133,15 @@ public class Kommandozeilenmenue {
 		System.out.println("Geben Sie die Deadline der Aufgabe ein:");
 		String deadline = scan.nextLine();
 		GregorianCalendar gc2 = stringToCalendar(deadline, "dd.mm.yyyy");
-		Aufgabe a = new AufgabeMitDeadline(text, gc, gc2);
-		ab.aufgabeHinzufuegen(a);
+		if(gc2.before(gc))
+		{
+			Aufgabe a = new AufgabeMitDeadline(text.toUpperCase(), gc, gc2);
+			ab.aufgabeHinzufuegen(a);
+		} else {
+			Aufgabe a = new AufgabeMitDeadline(text, gc, gc2);
+			ab.aufgabeHinzufuegen(a);
+		}
+		
 		System.out.println("Erfolgreich hinzugefuegt!");
 		start();
 
@@ -156,7 +163,7 @@ public class Kommandozeilenmenue {
 	
 	public void entfernen() {
 		System.out.println("-----------------------------------------");
-		System.out.println("Bitte geben Sie den vollständigen Name der gesuchten Aufgabe ein:");
+		System.out.println("Bitte geben Sie den vollstaendigen Name der gesuchten Aufgabe ein:");
 		String s = scan.nextLine();
 		ab.medienEntfernen(s);
 		start();
@@ -206,7 +213,7 @@ public class Kommandozeilenmenue {
 	
 	public void filtern() {
 		System.out.println("-----------------------------------------");
-		System.out.println("Bitte geben Sie den vollständigen Text der Aufgabe ein:");
+		System.out.println("Bitte geben Sie den vollstaendigen Text der Aufgabe ein:");
 		String s = scan.nextLine();
 		ab.aufgabeFiltern(s);
 		start();

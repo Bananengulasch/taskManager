@@ -1,6 +1,7 @@
 package taskManager;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 public class Aufgabenbibliothek {
 
@@ -62,7 +63,12 @@ public class Aufgabenbibliothek {
 	//Ausgabe aller Aufgaben
 	public void anzeigen() {
 		for (Aufgabe a : aufgabenliste) {
-			System.out.println("------------------------------");
+			GregorianCalendar g = new GregorianCalendar();
+			if(g.before(a.getDatumErstellung()))
+			{
+				String x = a.getAufgabentext();
+				a.setAufgabentext(x.toUpperCase());
+			}
 			System.out.println(a);
 		}
 	}
