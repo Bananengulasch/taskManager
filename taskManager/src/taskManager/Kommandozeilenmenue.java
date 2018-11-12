@@ -15,12 +15,22 @@ public class Kommandozeilenmenue {
 
 	public Kommandozeilenmenue() {
 		this.scan = new Scanner(System.in);
+		bisherigeAufgaben();
+	}
+	
+	public void bisherigeAufgaben() {
+		String aktuellesDatum ="20.11.2018";
+		String deadline ="30.11.2018";
+		GregorianCalendar gc = stringToCalendar(aktuellesDatum, "dd.mm.yyyy");
+		GregorianCalendar gc2 = stringToCalendar(deadline, "dd.mm.yyyy");
+		Aufgabe a = new AufgabeMitDeadline("APR-H�", gc, gc2);
+		ab.aufgabeHinzufuegen(a);
 	}
 
 	public void MenueAnzeigen() {
 		System.out.println("------------------------------");
-		System.out.println("HAUPTMENÜ");
-		System.out.println("1) HINZUFÜGEN");
+		System.out.println("HAUPTMENUE");
+		System.out.println("1) HINZUFUEGEN");
 		System.out.println("2) AUSGABE");
 		System.out.println("3) FILTERN");
 		System.out.println("4) exit");
@@ -82,7 +92,8 @@ public class Kommandozeilenmenue {
 		String deadline = scan.nextLine();
 		GregorianCalendar gc2 = stringToCalendar(deadline, "dd.mm.yyyy");
 		Aufgabe a = new AufgabeMitDeadline(text, gc, gc2);
-		System.out.println(a);
+		ab.aufgabeHinzufuegen(a);
+		System.out.println("Erfolgreich hinzugefuegt!");
 
 	}
 	
@@ -95,7 +106,7 @@ public class Kommandozeilenmenue {
 		
 	public void ausgabe(){			
 		System.out.println("------------------------------");
-		System.out.println("");
+		ab.anzeigen();
 	}
 		
 	public void filtern(){
@@ -104,7 +115,7 @@ public class Kommandozeilenmenue {
 	}
 		
 	public void fehler(){
-		System.out.println("Sie können nur 1,2 oder 3 eingeben!");
+		System.out.println("Sie koennen nur 1,2 oder 3 eingeben!");
 	}
 	
 	public static GregorianCalendar stringToCalendar(String stringDate, String datePattern) {
