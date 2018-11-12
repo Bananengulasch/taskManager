@@ -65,5 +65,13 @@ public class Aufgabenbibliothek {
 			System.out.println(a);
 		}
 	}
-}
+	
+	//Entfernen der ausgewählten Aufgabe
+		public void erledigt(int index) {
+			
+				aufgabenliste.remove(index);
+			
+			}
+		}
+
 
