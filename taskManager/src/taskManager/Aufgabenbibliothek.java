@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 public class Aufgabenbibliothek {
 
-	private ArrayList<Aufgabe> aufgabenliste = new ArrayList<Aufgabe>();
+	ArrayList<Aufgabe> aufgabenliste = new ArrayList<Aufgabe>();
+	ArrayList<AufgabeMitDeadline> deadlineliste = new ArrayList<AufgabeMitDeadline>();
 	
-	//neue Aufgabe hinzufügen
-	public void aufgabeHinzufügen(Aufgabe a) {
+	//neue Aufgabe hinzufÃ¼gen
+	public void aufgabeHinzufuegen(Aufgabe a) {
 		aufgabenliste.add(a);
 	}
 	
@@ -24,7 +25,7 @@ public class Aufgabenbibliothek {
 		}
 	}
 	
-	//prüft ob die Deadline abgelaufen ist
+	//prÃ¼ft ob die Deadline abgelaufen ist
 	//Wenn ja, gib Meldung
 	public void deadlinePruefung() {
 		
@@ -48,10 +49,21 @@ public class Aufgabenbibliothek {
 		}
 	}
 	
+	//Aufgabe nach Deadline-Aufgaben in der Liste filtern
+	public ArrayList<AufgabeMitDeadline> alleDeadlineAlsListe() {
+		for(Aufgabe a : aufgabenliste) {
+			if(a instanceof AufgabeMitDeadline) {
+				deadlineliste.add((AufgabeMitDeadline)a);
+			}
+		}
+		return deadlineliste;
+	}
+	
 	//Ausgabe aller Aufgaben
 	public void anzeigen() {
 		for (Aufgabe a : aufgabenliste) {
-			a.toString();
+			System.out.println(a);
 		}
 	}
 }
+
