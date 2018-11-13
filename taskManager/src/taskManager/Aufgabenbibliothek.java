@@ -67,12 +67,13 @@ public class Aufgabenbibliothek {
 			GregorianCalendar g = new GregorianCalendar();
 			if(a instanceof AufgabeMitDeadline) {
 				AufgabeMitDeadline deadlineA = (AufgabeMitDeadline)a;
-				if(g.after(deadlineA.getDeadline()))
+				if(g.before(deadlineA.getDeadline()))
 				{
-					
-				}else {
 					String x = a.getAufgabentext();
 					a.setAufgabentext(x.toUpperCase());
+					
+				}else {
+					
 				}
 			}
 			
